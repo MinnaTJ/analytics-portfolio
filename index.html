@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minna TJ - Business Analytics Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 4px solid #667eea;
+            padding-bottom: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header .tagline {
+            font-size: 1.4em;
+            color: #555;
+            margin: 10px 0;
+        }
+        
+        .header .subtitle {
+            font-size: 1.1em;
+            color: #777;
+            margin-top: 10px;
+        }
+        
+        .contact-info {
+            text-align: center;
+            margin: 25px 0;
+            font-size: 1em;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .contact-info a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .contact-info a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .stat-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 20px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .stat-box:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1em;
+            opacity: 0.95;
+        }
+        
+        .section {
+            margin: 50px 0;
+        }
+        
+        .section h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-left: 6px solid #667eea;
+            padding-left: 20px;
+            font-weight: 600;
+        }
+        
+        .about-text {
+            font-size: 1.15em;
+            line-height: 1.9;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .skill-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.05em;
+            transition: all 0.3s;
+            cursor: default;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .project-card {
+            background: #f8f9fa;
+            padding: 30px;
+            margin: 25px 0;
+            border-radius: 15px;
+            border-left: 6px solid #667eea;
+            transition: all 0.3s;
+        }
+        
+        .project-card:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transform: translateX(5px);
+        }
+        
+        .project-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.6em;
+        }
+        
+        .project-meta {
+            color: #666;
+            font-size: 0.95em;
+            margin: 12px 0;
+            font-weight: 500;
+        }
+        
+        .project-card ul {
+            margin: 15px 0 15px 25px;
+            line-height: 1.8;
+        }
+        
+        .project-card li {
+            margin: 8px 0;
+            color: #555;
+        }
+        
+        .project-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 25px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .project-link:hover {
+            background: #764ba2;
+            transform: scale(1.05);
+        }
+        
+        .achievements {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+        
+        .achievements h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        
+        .achievements ul {
+            list-style: none;
+            line-height: 2.2;
+            font-size: 1.05em;
+        }
+        
+        .achievements li:before {
+            content: "🏆 ";
+            margin-right: 10px;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .cta-section h2 {
+            color: white;
+            border: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.2em;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-button {
+            padding: 15px 30px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1em;
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 20px rgba(255,255,255,0.3);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 3px solid #eee;
+            color: #666;
+        }
+        
+        footer p {
+            margin: 10px 0;
+        }
+        
+        .coming-soon {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            border-left-color: #ffa500;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Minna TJ</h1>
+            <p class="tagline">Business Analytics Professional | Machine Learning Enthusiast</p>
+            <p class="subtitle">MBA in Business Analytics | IIT (ISM) Dhanbad</p>
+        </div>
+        
+        <div class="contact-info">
+            <span>📧 <a href="mailto:tjminna@gmail.com">tjminna@gmail.com</a></span>
+            <span>📱 9446724026</span>
+            <span>💼 <a href="https://linkedin.com/in/minna-tj" target="_blank">LinkedIn</a></span>
+            <span>💻 <a href="https://github.com/MinnaTJ" target="_blank">GitHub</a></span>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-box">
+                <span class="stat-number">3+</span>
+                <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">6</span>
+                <span class="stat-label">ML Projects</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">15+</span>
+                <span class="stat-label">Dashboards Built</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">10M+</span>
+                <span class="stat-label">Records Analyzed</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>About Me</h2>
+            <p class="about-text">
+                I'm a Business Analytics professional passionate about transforming complex data into actionable business insights. 
+                Currently pursuing my MBA at IIT (ISM) Dhanbad, I specialize in predictive modeling, machine learning, and data-driven 
+                decision making.
+            </p>
+            <p class="about-text">
+                With 3 years of hands-on experience at Wipro and Bewakoof, I've successfully delivered analytics 
+                solutions that improved efficiency by 40% and reduced reporting errors by 15%. My approach combines technical 
+                expertise with strong business acumen, enabling me to bridge the gap between data science and strategic decision-making.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">Python (pandas, scikit-learn)</div>
+                <div class="skill-card">SQL & Databases</div>
+                <div class="skill-card">Machine Learning</div>
+                <div class="skill-card">Power BI & Tableau</div>
+                <div class="skill-card">Statistical Analysis</div>
+                <div class="skill-card">A/B Testing</div>
+                <div class="skill-card">Predictive Modeling</div>
+                <div class="skill-card">Product Analytics</div>
+                <div class="skill-card">Data Visualization</div>
+                <div class="skill-card">ETL Pipelines</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Featured Projects</h2>
+            
+            <div class="project-card">
+                <h3>🎯 Customer Churn Prediction Model</h3>
+                <p class="project-meta"><strong>Tech Stack:</strong> Python, scikit-learn, Random Forest, pandas, matplotlib</p>
+                <p>
+                    Built an end-to-end machine learning solution predicting customer churn with 85% accuracy. 
+                    Identified 450 high-risk customers representing $420K in potential annual revenue savings.
+                </p>
+                <ul>
+                    <li>85% prediction accuracy using Random Forest algorithm</li>
+                    <li>Discovered top 3 churn drivers: contract type, tenure, and payment method</li>
+                    <li>Delivered actionable recommendations for retention strategy</li>
+                    <li>Created comprehensive business impact analysis with ROI calculations</li>
+                </ul>
+                <a href="https://github.com/MinnaTJ/analytics-portfolio" class="project-link">View on GitHub →</a>
+            </div>
+
+            <div class="project-card">
+                <h3>📊 E-commerce Analytics Dashboard</h3>
+                <p class="project-meta"><strong>Tech Stack:</strong> MySQL, Python, Power BI, Metabase</p>
+                <p>
+                    Developed comprehensive analytics dashboards tracking order trends, returns, SLA breaches, 
+                    and courier performance across 10M+ transactions at Bewakoof.
+                </p>
+                <ul>
+                    <li>Reduced reporting time by 20 hours per week through automation</li>
+                    <li>Improved KPI tracking visibility by 20%</li>
+                    <li>Identified key factors driving 12% improvement in customer retention</li>
+                    <li>Built Python scripts for daily data refresh and Excel report generation</li>
+                </ul>
+                <a href="https://github.com/MinnaTJ/analytics-portfolio" class="project-link">View Details →</a>
+            </div>
+
+            <div class="project-card">
+                <h3>🔄 Regulatory Reporting Optimization</h3>
+                <p class="project-meta"><strong>Tech Stack:</strong> SQL Server, SAP BusinessObjects, SAP BODS</p>
+                <p>
+                    Led optimization project for banking regulatory reporting processes at Wipro, serving major US banking client.
+                </p>
+                <ul>
+                    <li>Reduced processing time by 40% through ETL optimization</li>
+                    <li>Achieved zero post-deployment defects with comprehensive UAT</li>
+                    <li>Eliminated data discrepancies in regulatory reports</li>
+                    <li>Designed 10+ functional dashboards for stakeholder reporting</li>
+                </ul>
+                <a href="https://github.com/MinnaTJ/analytics-portfolio" class="project-link">View Documentation →</a>
+            </div>
+
+            <div class="project-card coming-soon">
+                <h3>🚀 More Projects Coming Soon!</h3>
+                <p style="font-size: 1.1em;">
+                    <strong>Currently Building:</strong> A/B Testing Framework • Product Analytics Dashboard • 
+                    Time Series Forecasting • SQL Advanced Analytics • Cohort Analysis System
+                </p>
+                <p style="margin-top: 15px;">
+                    Check back in December 2024 for exciting new projects showcasing advanced ML and analytics capabilities!
+                </p>
+            </div>
+        </div>
+
+        <div class="achievements">
+            <h3>🏆 Certifications & Achievements</h3>
+            <ul>
+                <li><strong>Microsoft Power BI Data Analyst (PL-300)</strong> - Certified Professional</li>
+                <li><strong>Lean Six Sigma Green Belt</strong> - KPMG (2025)</li>
+                <li><strong>2nd Place - Ideathon</strong> at IIM Rohtak</li>
+                <li><strong>3rd Place - ANALYTICA Contest</strong> by Organon</li>
+                <li><strong>Design Head</strong> - Analytical Club, IIT (ISM) Dhanbad</li>
+            </ul>
+        </div>
+
+        <div class="cta-section">
+            <h2>Let's Connect!</h2>
+            <p>
+                I'm actively seeking opportunities in Business Analytics, Product Analytics, and Data Science roles. 
+                If you're looking for someone who can turn data into strategic insights and drive measurable business impact, 
+                let's have a conversation!
+            </p>
+            <p style="margin-top: 20px;">
+                <strong>Open to:</strong> Business Analyst | Product Analyst | Data Scientist | Analytics Manager
+            </p>
+            <div class="cta-buttons">
+                <a href="mailto:tjminna@gmail.com" class="cta-button">📧 Email Me</a>
+                <a href="https://linkedin.com/in/minna-tj" target="_blank" class="cta-button">💼 LinkedIn</a>
+                <a href="https://github.com/MinnaTJ" target="_blank" class="cta-button">💻 GitHub</a>
+            </div>
+        </div>
+
+        <footer>
+            <p style="font-size: 1.1em; font-weight: 600;">© 2024 Minna TJ</p>
+            <p style="margin-top: 10px;">Built with passion for analytics and data-driven insights 📊</p>
+            <p style="margin-top: 10px; color: #999;">Last updated: December 2024</p>
+        </footer>
+    </div>
+</body>
+</html>
